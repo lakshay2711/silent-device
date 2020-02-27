@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
+
 import {MatInputModule,
   MatCardModule,
    MatButtonModule,
    MatToolbarModule,
     MatExpansionModule,
     MatGridListModule,
+    MatIconModule,
     MatProgressSpinnerModule} from '@angular/material';
     import {createCustomElement} from '@angular/elements';
     import {HttpClientModule} from '@angular/common/http';
@@ -14,7 +16,7 @@ import { DeviceComponent } from './device/device.component';
 
 @NgModule({
   declarations: [
-    DeviceComponent
+    DeviceComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,17 +28,18 @@ import { DeviceComponent } from './device/device.component';
     MatExpansionModule,
     MatProgressSpinnerModule,
     MatGridListModule,
+    MatIconModule,
     HttpClientModule
   ],
   entryComponents: [DeviceComponent],
   providers: [],
-  //bootstrap: [AppComponent]
+ // bootstrap: [AppComponent]
 
 })
 export class AppModule {
   constructor(injector: Injector) {
     const custom = createCustomElement(DeviceComponent, {injector: injector});
-    customElements.define('app-device', custom);
+    customElements.define('mps-single-devices', custom);
   }
   ngDoBootstrap() {}
  }

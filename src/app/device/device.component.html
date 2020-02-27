@@ -1,85 +1,65 @@
-<mat-toolbar color="accent">
-    <span>   Silent Devices 
-        </span>
-        <span class = "spacer"></span>
-   
-  </mat-toolbar>
-  
-  <div class="container ">
-  
-      <div class="main">
-        <a style="cursor: pointer" (click)="exportexcel()">
-          <i class="fa fa-download">&nbsp;Export</i>
-        </a>
-        &nbsp;&nbsp;&nbsp;&nbsp;
-        <div class="file-upload">
-          <label for="file">
-            <i class="fa fa-upload">&nbsp;Upload</i>
-          </label>
-          <input type="file" id="file" (change)="onFileChange($event)">
-        </div>
-      </div>
-  
-  <div id="excel-table">
-      <mat-accordion multi = "true" >
-          <mat-expansion-panel *ngFor="let device of devices" >
-              <mat-expansion-panel-header>
-                  <div class="row titleRow ">
-                      <div class="column" >
-                      <p> <b>Product no :</b> {{device.pNo}}</p>
-                      </div>
-                    </div>
-  
-                    <div class="row titleRow">
-                        <div class="column" >
-                        <p> <b> partner :</b> {{device.partner}}</p>
-                        </div>
-                      </div>
-  
-                      <div class="row titleRow">
-                          <div class="column" >
-                          <p> <b> MS Contract ID :</b> {{device.contractId}}</p>
-                          </div>
-                        </div>
-                        <div class="row titleRow">
-                            <div class="column" >
-                            <p> <b> Last Modified Date :</b> {{device.lastmodifieddate}}</p>
-                            </div>
-                          </div>
-  
-                </mat-expansion-panel-header>
-  
-                <div class="row">
+
+  <mat-card>
+    <mat-card-title>
+     <span>
+      Silent Devices
+     </span> 
+     <label for="file" style = "float: right; color: #337ab7;" >
+      <mat-icon aria-hidden="false" aria-label="cloud_upload">cloud_upload</mat-icon>
+    </label>
+    <input type="file" id="file" (change)="onFileChange($event)">
+    <span class = "spacer"></span>
+      <a style="cursor: pointer;float: right; color: #337ab7;" (click)="exportexcel()">
+        <mat-icon aria-hidden="false" aria-label="cloud_download">cloud_download</mat-icon>
+        
+      </a>
+
+    </mat-card-title>
+    <mat-card-content>
+    <mat-accordion multi = "true" >
+        <mat-expansion-panel *ngFor="let device of devices" >
+            <mat-expansion-panel-header>
+                <div class="row titleRow ">
                     <div class="column" >
-                    <p> <b> partner :</b> {{device.partner}}</p>
+                    <p> <b>Customer Name :</b> {{device.customerName}}</p>
                     </div>
                   </div>
-  
-                  <div class="row">
+
+                  <div class="row titleRow">
                       <div class="column" >
-                      <p> <b> MS Contract ID :</b> {{device.contractId}}</p>
+                      <p> <b> Serial No :</b> {{device.serialNumber}}</p>
                       </div>
                     </div>
-                    <div class="row">
+
+                    <div class="row titleRow">
                         <div class="column" >
-                        <p> <b> Last Modified Date :</b> {{device.lastmodifieddate}}</p>
+                        <p> <b> Product No :</b> {{device.productNumber}}</p>
                         </div>
                       </div>
-  
-  
-  
-  
-                <!-- <p>{{device.partner}}</p>
-                <p>{{device.contractId}}</p>
-                <p>{{device.lastmodifieddate}}</p> -->
-  
-          </mat-expansion-panel>
-      </mat-accordion>
-  
-  </div>
-  
-    </div>
-  
-  
-  
-  
+                      <div class="row titleRow">
+                          <div class="column" >
+                          <p> <b> FamilyName :</b> {{device.familyName}}</p>
+                          </div>
+                        </div>
+
+              </mat-expansion-panel-header>
+
+              <div class="row">
+                  <div class="column" >
+                  <p> <b> lastCollectionDate :</b> {{device.lastCollectionDate}}</p>
+                  </div>
+                  <div class="column" >
+                    <p> <b> lastCollectedLifetimeTotalCount :</b> {{device.lastCollectedLifetimeTotalCount}}</p>
+                    </div>
+                    <div class="column" >
+                      <p> <b> lastCollectedTotalColorCount :</b> {{device.lastCollectedTotalColorCount}}</p>
+                      </div>
+                </div>
+        </mat-expansion-panel>
+    </mat-accordion>
+</mat-card-content>
+</mat-card>
+
+
+
+
